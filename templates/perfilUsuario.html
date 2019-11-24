@@ -6,7 +6,7 @@
 
   <div class="regresar">
       <form name="regresar" action="">
-        <input type="submit" value="Regresar" name="regresar">
+        <input type="button" value="Regresar" name="regresa" onclick="goBack()">
       </form>
   </div>
 
@@ -18,12 +18,12 @@
     <p>Fecha de nacimiento: {FECHAN}</p>
     <p>G&eacutenero: {GENERO}</p>
     <p>Fecha de registro: {FECHAR}</p>
+    <div class="boton">
+        <form name="botonSeguir" action="">
+          <input type="button" value="Seguir"name="seguir" onclick="seguirU({ID}, {IDP})">
+        </form>
+    </div>
     <!-- END NUsuario -->
-  </div>
-  <div class="boton">
-      <form name="botonSeguir" action="">
-        <input type="button" value='{Seguir}' name="seguir" onclick="seguirU({ID}, {IDP})" disabled='{Sensibilidad}'>
-      </form>
   </div>
 
   <div class="posts">

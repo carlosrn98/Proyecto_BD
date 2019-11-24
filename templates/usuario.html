@@ -1,7 +1,7 @@
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="./estilos/usuario.css">
+    <link rel="stylesheet" href="./estilos/usuario.css" text="text/css">
   </head>
 
   <body>
@@ -38,7 +38,7 @@
       <div class="feed">
         <!-- BEGIN NPosts -->
         <div class="post">
-          <h3><a href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></h3>  {FECHA}
+          <h3><a id="Link_usuario"href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></h3> <p> {FECHA}</p>
           <p>{COMENTARIO}</p>
           <p>Lugar: <a id="Link_lugar" href="url">{LUGAR_NOMBRE}</a></p>
           <p>Descripci&oacuten: {LUGAR_DESCRIPCION}</p>
@@ -53,6 +53,12 @@
           <!-- END NContactos -->
         </div>
       </div>
+    </div>
+
+    <div class="logOut">
+      <form name="cerrarSesion" action="./index.php">
+        <input type="submit" value="Cerrar Sesión" name="btnCS">
+      </form>
     </div>
 
   </body>

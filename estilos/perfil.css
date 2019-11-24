@@ -2,10 +2,11 @@ body{
   background-color: #1303ff;
 }
 .infoUsuario{
-  padding:15%;
   color:white;
   border-style:solid;
   border-width: groove;
+  padding: 5px 5px 5px 5px;
+  border-color:#000000;
 }
 #Link_lugar{
   color:white;
@@ -14,11 +15,14 @@ body{
   color:white;
   border-style:solid;
   border-width: groove;
+  padding: 5px 5px 5px 5px;
+  border-color:#000000;
 }
 
 .post{
-  padding:15%;
   color:white;
   border-style:solid;
   border-width: groove;
+  padding: 5px 5px 5px 5px;
+  border-color:#000000;
 }

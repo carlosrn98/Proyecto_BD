@@ -1,0 +1,117 @@
+CREATE TABLE pf_usuarios(
+  idUsuario INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idUsuario),
+  nombre VARCHAR(50) NOT NULL,
+  apellido VARCHAR(50) NOT NULL,
+  email varchar(50) NOT NULL UNIQUE,
+  nombreUsr VARCHAR(30) NOT NULL UNIQUE,
+  password varchar(50) NOT NULL,
+  fechaNacimiento DATE NOT NULL,
+  genero ENUM('Hombre', 'Mujer', 'Otro') NOT NULL,
+  fechaRegistro DATE NOT NULL,
+  tipoUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_tiposUsuario(tipoUsuario) ON DELETE RESTRICT
+);
+
+CREATE TABLE pf_historial(
+  idHistorial INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
+  fecha TIMESTAMP NOT NULL,
+  link VARCHAR(100) NOT NULL,
+  idUsuario INT UNSIGNED NOT NULL,
+  CONSTRAINT FK_historial_idUsuario FOREIGN KEY(idUsuario)
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pf_tiposUsuario(
+  idTipo INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idTipo),
+  tipo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE pf_contactos(
+  idContacto INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idContacto),
+  usuarioPrincipal INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE,
+  idUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE
+);
+
+
+
+CREATE TABLE pf_invitaciones(
+  idInvitacion INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idInvitacion),
+  idLugar INT UNSIGNED NOT NULL
+  REFERENCES pf_lugaresTuristicos(idLugar) ON DELETE CASCADE ON UPDATE CASCADE,
+  idContacto INT UNSIGNED NOT NULL
+  REFERENCES pf_contactos(idContacto) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pf_posts(
+  idPost INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idPost),
+  comentario VARCHAR(240),
+  idLugar INT UNSIGNED NOT NULL
+  REFERENCES pf_lugaresTuristicos(idLugar) ON DELETE CASCADE ON UPDATE CASCADE,
+  idUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pf_categorias(
+  idCategoria INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idCategoria),
+  categoria VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE pf_calificaciones(
+  idCalificacion INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idCalificacion),
+  calificacion DECIMAL(2,1),
+  idLugar INT UNSIGNED NOT NULL
+  REFERENCES pf_lugaresTuristicos(idLugar) ON DELETE CASCADE ON UPDATE CASCADE,
+  idUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+
+);
+
+CREATE TABLE pf_comentarios(
+  idComentario INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idComentario),
+  comentario VARCHAR(500) NOT NULL,
+  idLugar INT UNSIGNED NOT NULL
+  REFERENCES pf_lugaresTuristicos(idLugar) ON DELETE CASCADE ON UPDATE CASCADE,
+  idUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pf_lugaresTuristicos(
+  idLugar INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  PRIMARY KEY(idLugar),
+  nombre VARCHAR(50) NOT NULL,
+  descripcion VARCHAR(500),
+  DOUBLE latitud NOT NULL,
+  DOUBLE longitud NOT NULL,
+  idCategoria  INT UNSIGNED
+  REFERENCES pf_categorias(idCategoria) ON DELETE SET NULL
+);
+
+CREATE TABLE pf_imagenesLT(
+  idImagen INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  idLugar INT UNSIGNED NOT NULL
+  REFERENCES pf_lugaresTuristicos(idLugar) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE pf_imagenesUsr(
+  idImagen INT UNSIGNED AUTO_INCREMENT NOT NULL,
+  nombre VARCHAR(100) NOT NULL,
+  idUsuario INT UNSIGNED NOT NULL
+  REFERENCES pf_usuarios(idUsuario) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+INSERT INTO pf_contactos(usuarioPrincipal, idUsuario) VALUES(3,2);
+
+INSERT INTO pf_usuarios(nombre, apellido, email, nombreUsr, password, fechaNacimiento, genero, fechaRegistro, tipoUsuario) VALUES('José', 'Sánchez', 'jsanchez@hotmail.com','jsanchez', '123456', '1981-10-10','Hombre',CURRENT_DATE(),3);
+
+INSERT INTO pf_historial(fecha, link, idUsuario) VALUES(CURTIME(), 'www.asdfasdfasdf.com',7);

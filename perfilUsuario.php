@@ -29,28 +29,15 @@
     $template->setVariable("FECHAR", $line['fechaRegistro']);
     $template->setVariable("ID",$id);
     $template->setVariable("IDP",$idUsuarioPrincipal);
-
+    
     $template->parseCurrentBlock("NUsuario");
-  }
-  mysqli_free_result($result);
-  $query="SELECT * FROM pf_contactos WHERE UsuarioPrincipal=$idUsuarioPrincipal AND idUsuario=$id";
-  $result = mysqli_query($link, $query) or die("query failed");
-  $line = mysqli_fetch_assoc($result);
-  $flag=0;
-  $flag=$line['idContacto'];
-  if($flag!=0){
-    $template->setVariable("Seguir", "Siguiendo");
-    $template->setVariable("Sensibilidad", "true");
-  }
-  else{
-    $template->setVariable("Seguir", "Seguir");
-    $template->setVariable("Sensibilidad", "false");
   }
   mysqli_free_result($result);
 
   //query para sacar los posts
   $query="set sql_mode=''";
   $result = mysqli_query($link, $query) or die("Query 5 failed");
+  mysqli_free_result($result);
 
   $query = "SELECT  fecha, nombreUsr, pf_usuarios.idUsuario AS idU, comentario, pf_lugaresTuristicos.nombre AS nombreL, descripcion FROM pf_usuarios RIGHT JOIN pf_contactos ON pf_usuarios.idUsuario=pf_contactos.idUsuario RIGHT JOIN pf_posts ON  pf_contactos.idUsuario= pf_posts.idUsuario LEFT JOIN pf_lugaresTuristicos USING(idLugar) WHERE pf_contactos.idUsuario=$id GROUP BY idPost ORDER BY fecha desc";
   $result = mysqli_query($link, $query) or die("Query 5 failed");

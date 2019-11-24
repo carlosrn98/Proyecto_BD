@@ -16,6 +16,11 @@ function seguirU(ele, ele1){
   return true;
 }
 
+function goBack(){
+  location.replace(document.referrer);
+}
+
+
 function muestraContenido(result, status, xhr){
   console.log(result);
 }

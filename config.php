@@ -8,6 +8,7 @@
  * Server configuration
  */
 $cfgServer['host']	= 'localhost';	// MySQL hostname
-$cfgServer['user']	= 'root';	// MySQL user
-$cfgServer['password']	= '';		// MySQL password
-$cfgServer['dbname']	= 'proyectobd';	// MySQL database name
+$cfgServer['user']	= 'im18crn';	// MySQL user
+$cfgServer['password']	= '211019';		// MySQL password
+$cfgServer['dbname']	= 'im18crn';	// MySQL database name
+?>
