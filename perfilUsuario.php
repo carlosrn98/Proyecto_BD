@@ -27,25 +27,20 @@
   $template->setVariable("FECHAN", $line['fechaNacimiento']);
   $template->setVariable("GENERO", $line['genero']);
   $template->setVariable("FECHAR", $line['fechaRegistro']);
-  $template->setVariable("ID",$id);
-  $template->setVariable("IDP",$idUsuarioPrincipal);
+
+
+  $query2="SELECT idContacto FROM pf_contactos WHERE idUsuario=$id AND usuarioPrincipal=$idUsuarioPrincipal";
+  $result2 = mysqli_query($link, $query2) or die("query failed");
+  if($line2 = mysqli_fetch_assoc($result2))
+    $template->setVariable("Seguir","Dejar de seguir");
+  else
+    $template->setVariable("Seguir","Dejar de seguir");
+
+  $template->setVariable("Funcion_Seguir","seguirU($id, $idUsuarioPrincipal); return cambiarseguir(this)");
+  mysqli_free_result($result2);
 
   $template->parseCurrentBlock("NUsuario");
   mysqli_free_result($result);
-  $flag=0;
-  //query que iguala la flag al id contacto parfa evaluar si lo sigue
-  $query="SELECT idContacto FROM pf_contactos WHERE idUsuario=$id AND usuarioPrincipal=$idUsuarioPrincipal";
-  $result = mysqli_query($link, $query) or die("query failed");
-  $line = mysqli_fetch_assoc($result);
-  $flag=$line['idContacto'];
-  //if que evalua si lo sigue o no
-  if($flag!=0){
-    $template->setVariable("Seguir","Dejar de seguir");
-  }
-  else{
-    $template->setVariable("Funcion_Seguir","seguirU({ID}, {IDP})");
-    $template->setVariable("Seguir","Seguir");
-  }
 
   //query para sacar los posts
   $query="set sql_mode=''";
