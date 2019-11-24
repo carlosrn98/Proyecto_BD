@@ -4,11 +4,13 @@
 
   $template = new HTML_Template_ITX('./templates');
   $template->loadTemplatefile("inicio.html", true, true);
-  $usernameSearch=$_POST['Personas'];
   $username=$_GET['nombre'];
 
+<<<<<<< HEAD
   $lugarSearch=$_POST['Lugares'];
 
+=======
+>>>>>>> 4405b9522ca99c4e52fe051fd7c5d9ed9fa4a1bf
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
   $template->addBlockfile("CONTENIDO", "INICIO", "usuario.html");
@@ -18,6 +20,7 @@
   mysqli_select_db($link, $cfgServer['dbname']) or die("Could not select database");
 
   if(isset($_POST['enter'])){
+    $usernameSearch=$_POST['Personas'];
     $query="SELECT idUsuario, nombreUsr FROM pf_usuarios WHERE nombreUsr='$usernameSearch'";
     $result = mysqli_query($link, $query) or die("Query 2 failed");
     while($line = mysqli_fetch_assoc($result)){
