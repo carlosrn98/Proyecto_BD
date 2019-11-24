@@ -28,13 +28,13 @@
   $template->setVariable("GENERO", $line['genero']);
   $template->setVariable("FECHAR", $line['fechaRegistro']);
 
-
+  //query para saber si lo sigue o no
   $query2="SELECT idContacto FROM pf_contactos WHERE idUsuario=$id AND usuarioPrincipal=$idUsuarioPrincipal";
   $result2 = mysqli_query($link, $query2) or die("query failed");
   if($line2 = mysqli_fetch_assoc($result2))
     $template->setVariable("Seguir","Dejar de seguir");
   else
-    $template->setVariable("Seguir","Dejar de seguir");
+    $template->setVariable("Seguir","Seguir");
 
   $template->setVariable("Funcion_Seguir","seguirU($id, $idUsuarioPrincipal); return cambiarseguir(this)");
   mysqli_free_result($result2);

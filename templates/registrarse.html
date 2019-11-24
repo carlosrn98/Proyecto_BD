@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="./estilos/registrarse.css">
+  <script type="text/jscript" src="./js/confrimar.js"></script>
 </head>
 <body>
     <form name="registro" action="registro.php" method="post" id="registro">
@@ -70,18 +71,26 @@
         </tr>
         <tr>
           <th>
-        Contrase&ntilde;a:
-        </th>
-        <th>
-          <input type="password" name="passwrd1">
+          </th>
+          <th>
+            <span id="message">
+            </span>
           </th>
         </tr>
         <tr>
           <th>
-        Confirmacion contrase&ntilde;a:
+            Contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd2">
+          <input type="password" name="passwrd1" id="password">
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Confirmacion contrase&ntilde;a:
+          </th>
+        <th>
+          <input type="password" name="passwrd2" id="confirm_password">
           </th>
         </tr>
         <tr>
