@@ -1,0 +1,10 @@
+body{
+  background-color: #1303ff;
+}
+.infoLugar{
+  color:white;
+  border-style:solid;
+  border-width: groove;
+  padding: 5px 5px 5px 5px;
+  border-color:#000000;
+}

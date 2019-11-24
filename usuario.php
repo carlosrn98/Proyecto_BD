@@ -7,6 +7,7 @@
   $usernameSearch=$_POST['Personas'];
   $username=$_GET['nombre'];
 
+  $lugarSearch=$_POST['Lugares'];
 
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
@@ -26,6 +27,17 @@
     mysqli_free_result($result);
 
     header("location: perfilUsuario.php?idP=$idUsuarioPrincipal&id=$id&nom=$user");
+  }
+  else if(isset($_POST['enterL'])){
+    $query="SELECT idLugar, nombre FROM pf_lugaresTuristicos WHERE nombre='$lugarSearch'";
+    $result = mysqli_query($link, $query) or die("Query 2 failed");
+    while($line = mysqli_fetch_assoc($result)){
+      $idLugar=$line['idLugar'];
+      $nombreLugar=$line['nombre'];
+    }
+    mysqli_free_result($result);
+
+    header("location: lugar.php?idP=$idUsuarioPrincipal&idLugar=$idLugar&nomL=$nombreLugar");
   }
   else{
     $query = "SELECT nombre, apellido, nombreUsr, idUsuario FROM pf_usuarios";

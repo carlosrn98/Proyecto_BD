@@ -12,7 +12,7 @@
           <th><a id="Link_perfil" href="">LOGO</a></th>
           <!-- BEGIN USUARIO -->
           <form name="buscarPersona" action="./usuario.php?token={IDP}" method="post">
-            <!-- BEGIN USUARIO -->
+
           <th><input type="search" name="Personas" list="Persona" placeholder="Busca una persona"><datalist id="Persona">
             <!-- BEGIN NPersonas -->
               <option  value="{NOMBRE_USR}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO}</option>
@@ -21,14 +21,17 @@
           <th><input type="submit" name="enter" value="Buscar"></th>
           </form>
 
+          <form name="buscarLugar" action="./usuario.php?token={IDP}" method="post">
           <th><input type="search" name="Lugares" list="Lugar" placeholder="Busca un lugar"><datalist id="Lugar">
             <!-- BEGIN NLugares -->
               <option value='{LUGARES_NOMBRE}'>
             <!-- END NLugares -->
           </th>
-          <!-- BEGIN USUARIO -->
+          <th><input type="submit" name="enterL" value="Buscar"></th>
+          </form>
+
           <th> <a id="Link_perfil" href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">Hola, {NOMBRE_USR} </a></th>
-          <!-- BEGIN USUARIO -->
+          <!-- END USUARIO -->
         </tr>
 
       </table>

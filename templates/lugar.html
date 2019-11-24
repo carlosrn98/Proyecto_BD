@@ -1,0 +1,28 @@
+<header>
+  <link rel="stylesheet" href="./estilos/lugar.css" text="text/css">
+</header>
+<body>
+
+  <div class="regresar">
+      <form name="regresar" action="">
+        <input type="button" value="Regresar" name="regresa" onclick="goBack()">
+      </form>
+  </div>
+
+  <div class="infoLugar">
+    <!-- BEGIN NLugar -->
+    <h1>{NOMBRE_LUGAR}</h1>
+    <p>Descripci&oacuten: {DESC}</p>
+    <p>Categor&iacutea: {CATEGORIA}</p>
+    <p>Longitud: {LONGITUD}</p>
+    <p>Latitud: {LATITUD}</p>
+
+    <form name="botonPost" action="./mandarPost.php?idP={IDP}&idL={IDL}&nomL={NOMBRE_LUGAR}&nom={NOMBRE_USR}" method="post">
+      <input type="text" name="comentario" placeholder="Comentario">
+      <input type="submit" name="enter" value="Post">
+    </form>
+    <!-- END NLugar -->
+  </div>
+
+
+</body>
