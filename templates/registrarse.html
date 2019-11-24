@@ -1,0 +1,96 @@
+<head>
+  <link rel="stylesheet" href="./estilos/registrarse.css">
+</head>
+<body>
+    <form name="registro" action="registro.php" method="post" id="registro">
+      <table align="center">
+        <tr>
+          <th colspan="4" rowspan="1">
+            <img src="./estilos/imagen.jpg">
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Nombre:
+          </th>
+          <th>
+            <input type="text" name="NuevoNmbr">
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Apellidos:
+          </th>
+          <th>
+            <input type="text" name="NuevoApe">
+          </th>
+        </tr>
+        <tr>
+          <th rowspan="4">
+          Seleccione su g&eacutenero:
+        </tr>
+        <tr class="opciones">
+          <th>
+            <input type="radio" name="genero" value="Hombre"> Hombre
+          </th>
+        </tr>
+        <tr class="opciones">
+          <th>
+            <input type="radio" name="genero" value="Mujer"> Mujer
+          </th>
+        </tr>
+        <tr class="opciones">
+          <th>
+            <input type="radio" name="genero" value="Otro"> Otro
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Fecha de Nacimiento:
+          </th>
+          <th>
+            <input type="date" name="FN">
+          </th>
+        </tr>
+        <tr>
+          <th>
+            Correo:
+          </th>
+          <th>
+           <input type="text" name="NuevoCorreo">
+         </th>
+        </tr>
+        <tr>
+          <th>
+            Usuario:
+          </th>
+          <th>
+          <input type="text" name="NuevoUsr">
+        </th>
+        </tr>
+        <tr>
+          <th>
+        Contrase&ntilde;a:
+        </th>
+        <th>
+          <input type="password" name="passwrd1">
+          </th>
+        </tr>
+        <tr>
+          <th>
+        Confirmacion contrase&ntilde;a:
+        </th>
+        <th>
+          <input type="password" name="passwrd2">
+          </th>
+        </tr>
+        <tr>
+          <th>
+          </th>
+          <th>
+            <input type="submit" value="Registrarse" name="BRegistrarse">
+          </th>
+        </tr>
+      </table>
+    </form>
+</body>

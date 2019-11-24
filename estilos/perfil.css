@@ -1,0 +1,24 @@
+body{
+  background-color: #1303ff;
+}
+.infoUsuario{
+  padding:15%;
+  color:white;
+  border-style:solid;
+  border-width: groove;
+}
+#Link_lugar{
+  color:white;
+}
+.posts{
+  color:white;
+  border-style:solid;
+  border-width: groove;
+}
+
+.post{
+  padding:15%;
+  color:white;
+  border-style:solid;
+  border-width: groove;
+}

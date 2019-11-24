@@ -1,0 +1,85 @@
+body{
+  overflow: auto;
+  font-family: helvetica, arial;
+}
+
+table{
+  width:100%;
+
+}
+
+.menu{
+  position:fixed;
+  top:0;
+  width:100%;
+  border-style:solid;
+  border-width: groove;
+  background-color: #1303ff;
+  font-size: 50px;
+}
+
+.textoMenu{
+  color: white;
+}
+
+
+.feed{
+  float: left;
+  border-style:solid;
+  width:72%;
+  border-width:groove;
+  overflow:hidden;
+  padding: 10px 10px 10px 10px;
+  background-color: #1303ff;
+}
+
+.post{
+  border-style:solid;
+  padding: 5px 5px 5px 5px;
+
+}
+
+h3{
+  color:#EEA47FFF;
+}
+p{
+  color:#EEA47FFF;
+}
+.contactos{
+  float:right;
+  border-style:solid;
+  width:25%;
+  border-width:groove;
+  padding: 5px 5px 5px 5px;
+  background-color: #1303ff;
+}
+
+h2{
+  text-align: center;
+  color:#EEA47FFF;
+}
+
+#Link_lugar{
+  color:#EEA47FFF;
+}
+
+#Link_contacto:link{
+  color:white;
+}
+
+#Link_contacto:visited{
+  color: white;
+}
+
+#Link_perfil:link{
+  color: #EEA47FFF;
+}
+
+#Link_perfil:visited{
+  color: #EEA47FFF;
+
+}
+
+#contenido{
+  margin-top: 50px;
+}

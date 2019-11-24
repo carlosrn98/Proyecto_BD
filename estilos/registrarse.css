@@ -1,0 +1,28 @@
+table{
+  border-style: solid;
+  border-radius: 15px;
+  border-collapse: separate;
+  border-spacing: 15px;
+  text-align: center;
+  border-color: blue;
+  font-size: 28px;
+  margin-top: 60px;
+}
+
+input{
+  line-height: 30px;
+  border-radius: 10px;
+  border-color:  #032cfc;
+}
+
+.opciones{
+  font-size: 20px;
+}
+
+input[type=submit]{
+  height: 50px;
+  width: 180px;
+  border-radius: 20px;
+  background-color: #032cfc;
+  color: white;
+}

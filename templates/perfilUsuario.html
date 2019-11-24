@@ -1,0 +1,41 @@
+
+<head>
+  <link rel="stylesheet" href="./estilos/perfil.css">
+</head>
+<body>
+
+  <div class="regresar">
+      <form name="regresar" action="">
+        <input type="submit" value="Regresar" name="regresar">
+      </form>
+  </div>
+
+  <div class="infoUsuario">
+    <!-- BEGIN NUsuario -->
+    <h1>{NOMBRE_USR}</h1>
+    <p>Nombre: {NOMBRE} {APELLIDO}</p>
+    <p>Email: {EMAIL}</p>
+    <p>Fecha de nacimiento: {FECHAN}</p>
+    <p>G&eacutenero: {GENERO}</p>
+    <p>Fecha de registro: {FECHAR}</p>
+    <!-- END NUsuario -->
+  </div>
+  <div class="boton">
+      <form name="botonSeguir" action="">
+        <input type="button" value='{Seguir}' name="seguir" onclick="seguirU({ID}, {IDP})" disabled='{Sensibilidad}'>
+      </form>
+  </div>
+
+  <div class="posts">
+    <!-- BEGIN NPosts -->
+    <div class="post">
+      <p>{FECHA}</p>
+      <p>{COMENTARIO}</p>
+      <p>Lugar: <a id="Link_lugar" href="url">{LUGAR_NOMBRE}</a></p>
+      <p>Descripci&oacuten: {LUGAR_DESCRIPCION}</p>
+    </div>
+    <!-- END NPosts -->
+  </div>
+
+
+</body>
