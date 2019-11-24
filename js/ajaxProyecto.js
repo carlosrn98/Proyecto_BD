@@ -20,7 +20,6 @@ function goBack(){
   location.replace(document.referrer);
 }
 
-
 function muestraContenido(result, status, xhr){
   console.log(result);
 }
