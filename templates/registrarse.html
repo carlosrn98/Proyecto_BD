@@ -4,7 +4,7 @@
 </head>
 <body>
     <form name="registro" action="registro.php" method="post" id="registro">
-      <table align="center">
+      <table align="center" name="tabla">
         <tr>
           <th colspan="4" rowspan="1">
             <img src="./estilos/imagen.jpg">
@@ -72,8 +72,8 @@
         <tr>
           <th>
           </th>
-          <th>
-            {mensaje}
+          <th id="mensaje">
+
           </th>
         </tr>
         <tr>
@@ -81,15 +81,7 @@
         Contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd1" onkeyup='{funcionverifica}'>
-          </th>
-        </tr>
-        <tr id="contra">
-          <th>
-            Contrase&ntilde;a:
-          </th>
-          <th>
-            <input type="password" name="passwrd1" onkeyup='{verificapasswrd}'>
+          <input type="password" name="passwrd1" onkeyup="verifica(this.value,document.registro.tabla.passwrd2.value)">
           </th>
         </tr>
         <tr id="contra">
@@ -97,7 +89,7 @@
             Confirmacion contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd2" onkeyup='{funcionverifica}'>
+          <input type="password" name="passwrd2" onkeyup=verifica(this.value,document.registro.tabla.passwrd1.value)>
           </th>
         </tr>
         <tr>

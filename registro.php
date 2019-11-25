@@ -21,7 +21,6 @@
   $passwrd1=$_POST['passwrd1'];
   $passwrd2=$_POST['passwrd2'];
 
-  $template->setVariable("funcionverifica","verificar($passwrd1,$passwrd2)");
   $template->setVariable("mensaje","");
   $template->parseCurrentBlock();
 
