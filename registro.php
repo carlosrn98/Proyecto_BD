@@ -9,7 +9,7 @@
   $template->setVariable("TITULO", "Registro");
   $template->addBlockfile("CONTENIDO", "INICIO", "registrarse.html");
   $template->touchBlock('INICIO');
-  $template->parseCurrentBlock();
+
 
 
   $nombre=$_POST['NuevoNmbr'];
@@ -19,6 +19,11 @@
   $correo=$_POST['NuevoCorreo'];
   $usuario=$_POST['NuevoUsr'];
   $passwrd1=$_POST['passwrd1'];
+  $passwrd2=$_POST['passwrd2'];
+
+  $template->setVariable("funcionverifica","verificar($passwrd1,$passwrd2)");
+  $template->setVariable("mensaje","");
+  $template->parseCurrentBlock();
 
   $link = mysqli_connect($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or die('Could not connect: ' . mysqli_error($link));
   mysqli_select_db($link, $cfgServer['dbname']) or die("Could not select database");

@@ -70,10 +70,17 @@
         </tr>
         <tr>
           <th>
+          </th>
+          <th>
+            {mensaje}
+          </th>
+        </tr>
+        <tr>
+          <th>
         Contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd1">
+          <input type="password" name="passwrd1" onkeyup='{funcionverifica}'>
           </th>
         </tr>
         <tr>
@@ -81,7 +88,7 @@
         Confirmacion contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd2">
+          <input type="password" name="passwrd2" onkeyup='{funcionverifica}'>
           </th>
         </tr>
         <tr>
