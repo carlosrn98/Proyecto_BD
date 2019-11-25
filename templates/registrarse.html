@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="./estilos/registrarse.css">
+  <script type="text/jscript" src="./js/registro.js"></script>
 </head>
 <body>
     <form name="registro" action="registro.php" method="post" id="registro">
@@ -70,19 +71,26 @@
         </tr>
         <tr>
           <th>
-        Contrase&ntilde;a:
-        </th>
-        <th>
-          <input type="password" name="passwrd1">
+          </th>
+          <th>
+            {matches}
           </th>
         </tr>
-        <tr>
+        <tr id="contra">
           <th>
-        Confirmacion contrase&ntilde;a:
+            Contrase&ntilde;a:
+          </th>
+          <th>
+            <input type="password" name="passwrd1" onkeyup='{verificapasswrd}'>
+          </th>
+        </tr>
+        <tr id="contra">
+          <th>
+            Confirmacion contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd2">
-          </th>
+          <input type="password" name="passwrd2" onkeyup='{verificapasswrd1}'>
+        </th>
         </tr>
         <tr>
           <th>

@@ -34,7 +34,7 @@
   if($line2 = mysqli_fetch_assoc($result2))
     $template->setVariable("Seguir","Dejar de seguir");
   else
-    $template->setVariable("Seguir","Dejar de seguir");
+    $template->setVariable("Seguir","Seguir");
 
   $template->setVariable("Funcion_Seguir","seguirU($id, $idUsuarioPrincipal); return cambiarseguir(this)");
   mysqli_free_result($result2);
