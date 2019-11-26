@@ -54,16 +54,18 @@ table{
 .feed{
   float: left;
   border-style:solid;
+  border-radius: 10px;
   width:72%;
   overflow:hidden;
   padding: 10px 10px 10px 10px;
-  background-color: #1303ff;
+  background-color: #0bdbc3;
 }
 
 .post{
   border-style:solid;
   padding: 5px 5px 5px 5px;
-
+  background-color: #0e3e9e;
+  border-radius: 15px;
 }
 
 h3{
@@ -78,6 +80,7 @@ p{
   width:25%;
   padding: 5px 5px 5px 5px;
   background-color: #1303ff;
+  border-radius: 10px;
 }
 
 h2{
