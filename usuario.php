@@ -7,6 +7,7 @@
   $username=$_GET['nombre'];
 
   $lugarSearch=$_POST['Lugares'];
+  
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
   $template->addBlockfile("CONTENIDO", "INICIO", "usuario.html");
