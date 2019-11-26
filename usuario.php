@@ -6,11 +6,7 @@
   $template->loadTemplatefile("inicio.html", true, true);
   $username=$_GET['nombre'];
 
-<<<<<<< HEAD
   $lugarSearch=$_POST['Lugares'];
-
-=======
->>>>>>> 4405b9522ca99c4e52fe051fd7c5d9ed9fa4a1bf
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
   $template->addBlockfile("CONTENIDO", "INICIO", "usuario.html");

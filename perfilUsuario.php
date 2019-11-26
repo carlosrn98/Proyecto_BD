@@ -27,10 +27,7 @@
   $template->setVariable("FECHAN", $line['fechaNacimiento']);
   $template->setVariable("GENERO", $line['genero']);
   $template->setVariable("FECHAR", $line['fechaRegistro']);
-  $template->setVariable("ID",$id);
-  $template->setVariable("IDP",$idUsuarioPrincipal);
 
-  $template->parseCurrentBlock("NUsuario");
   mysqli_free_result($result);
   $flag=0;
   //query que iguala la flag al id contacto parfa evaluar si lo sigue
@@ -38,15 +35,16 @@
   $result = mysqli_query($link, $query) or die("query failed");
   $line = mysqli_fetch_assoc($result);
   $flag=$line['idContacto'];
-  //if que evalua si lo sigue o no
-  if($flag!=0){
-    $template->setVariable("Seguir","Dejar de seguir");
-  }
-  else{
-    $template->setVariable("Funcion_Seguir","seguirU({ID}, {IDP})");
-    $template->setVariable("Seguir","Seguir");
-  }
 
+  //if que evalua si lo sigue o no
+  if($flag!=0)
+    $template->setVariable("Seguir","Seguir");
+  else
+    $template->setVariable("Seguir","Dejar de seguir");
+
+  $template->setVariable("Funcion_Seguir","seguirU($id, $idUsuarioPrincipal); return cambiarseguir(this)");
+
+  $template->parseCurrentBlock("NUsuario");
   //query para sacar los posts
   $query="set sql_mode=''";
   $result = mysqli_query($link, $query) or die("Query 5 failed");

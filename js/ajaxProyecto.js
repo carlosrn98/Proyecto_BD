@@ -1,7 +1,7 @@
 function seguirU(ele, ele1){
   var params="id="+ele+"&idP="+ele1;
 
-  url='./seguirUsuario.php'
+  url='./seguirUsuario.php';
 
   $.ajax({
     url: url,
@@ -14,6 +14,13 @@ function seguirU(ele, ele1){
   });
   console.log(params);
   return true;
+}
+
+function cambiarseguir(elemento){
+  if(elemento.value==="Seguir")
+    elemento.value="Dejar de seguir";
+  else
+    elemento.value="Seguir";
 }
 
 function goBack(){
