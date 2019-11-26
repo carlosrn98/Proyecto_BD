@@ -1,22 +1,29 @@
-body{
-  background-color: #1303ff;
-}
 .infoUsuario{
   color:white;
   border-style:solid;
   border-width: groove;
   padding: 5px 5px 5px 5px;
   border-color:#000000;
+  background-color: #26078c;
+  border-radius: 10px;
 }
+
 #Link_lugar{
   color:white;
 }
+
+body{
+  background-color: grey;
+}
+
 .posts{
   color:white;
   border-style:solid;
   border-width: groove;
   padding: 5px 5px 5px 5px;
   border-color:#000000;
+  background-color: #0bdbc3;
+  border-radius: 10px;
 }
 
 .post{
@@ -25,4 +32,6 @@ body{
   border-width: groove;
   padding: 5px 5px 5px 5px;
   border-color:#000000;
+  background-color: #0e3e9e;
+  border-radius: 15px;
 }
