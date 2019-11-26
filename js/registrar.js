@@ -1,7 +1,7 @@
 $(document).ready(function(){
   var flag=0;
  $("#Registrarse").click(function (event){
-   event.
+   
  });
 
  $('#password, #confirm_password').on('keyup', function () {
