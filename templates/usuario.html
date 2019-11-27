@@ -30,6 +30,8 @@
           <th><input type="submit" name="enterL" value="Buscar"></th>
           </form>
 
+          <th><a id="Link_perfil" href="./invitaciones.php?idP={IDP}">Invitaciones</a></th>
+
           <th> <a id="Link_perfil" href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">Hola, {NOMBRE_USR} </a></th>
           <!-- END USUARIO -->
         </tr>
@@ -40,11 +42,13 @@
     <div id="contenido">
       <div class="feed">
         <!-- BEGIN NPosts -->
+
         <div class="post">
           <h3><a id="Link_usuario"href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></h3> <p> {FECHA}</p>
           <p>{COMENTARIO}</p>
-          <p>Lugar: <a id="Link_lugar" href="url">{LUGAR_NOMBRE}</a></p>
+          <p>Lugar: <a id="Link_lugar" href="./lugar.php?idP={IDP}&idLugar={IDL}&nomL={LUGAR_NOMBRE}">{LUGAR_NOMBRE}</a></p>
           <p>Descripci&oacuten: {LUGAR_DESCRIPCION}</p>
+
         </div><br>
         <!-- END NPosts -->
       </div>
