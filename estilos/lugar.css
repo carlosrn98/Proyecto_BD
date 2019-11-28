@@ -1,16 +1,22 @@
 body{
-  background-color: #1303ff;
+  background-color: #0bdbc3;
+  font-family: helvetica, arial;
 }
 .infoLugar{
   color:white;
   border-style:solid;
+  border-radius: 10px;
   border-width: groove;
   padding: 5px 5px 5px 5px;
   border-color:#000000;
 }
 
+.infolugar{
+    background-color: #0e3e9e;
+}
+
 #map{
-  width: 80%;
+  width: 50%;
   height: 400px;
   background-color: grey;
 

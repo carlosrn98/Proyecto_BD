@@ -38,9 +38,9 @@
 
   //if que evalua si lo sigue o no
   if($flag!=0)
-    $template->setVariable("Seguir","Seguir");
-  else
     $template->setVariable("Seguir","Dejar de seguir");
+  else
+    $template->setVariable("Seguir","Seguir");
 
   $template->setVariable("Funcion_Seguir","seguirU($id, $idUsuarioPrincipal); return cambiarseguir(this)");
 
