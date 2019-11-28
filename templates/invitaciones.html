@@ -1,0 +1,28 @@
+
+<head>
+  <link rel="stylesheet" href="./estilos/invitaciones.css">
+</head>
+<body>
+
+  <div class="regresar">
+      <form name="regresar" action="">
+        <input type="button" value="Regresar" name="regresa" onclick="goBack()">
+      </form>
+  </div>
+
+  <div class="invitaciones">
+
+    <h3>
+      INVITACIONES
+    </h3>
+    <!-- BEGIN NInvitaciones -->
+    <div class="invitacion">
+      <p>{NOMBRE_USR} te invitó a <a id="Link_lugar" href="lugar.php?idP={IDP}&idLugar={IDL}&nomL={NOMBRE_LUGAR}">{NOMBRE_LUGAR}</a></p>
+      <p>{FECHA}</p>
+
+    </div><br>
+    <!-- END NInvitaciones -->
+
+  </div>
+
+</body>

@@ -1,7 +1,7 @@
 <html>
 <head>
   <link rel="stylesheet" href="./estilos/registrarse.css">
-  <script type="text/jscript" src="./js/registrar.js"></script>
+  <script type="text/javascript" src="./js/registrar.js"></script>
 </head>
 <body>
     <form name="registro" action="registro.php" method="post" id="registro">
@@ -70,27 +70,37 @@
           <input type="text" name="NuevoUsr">
         </th>
         </tr>
-        <tr>
+        <tr id="pass">
+          <th>
+          </th>
+          <th id="message">
+          </th>
+        </tr>
+        <tr id="pass">
           <th>
         Contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd1">
+          <input type="password" name="passwrd1" id="password">
           </th>
         </tr>
-        <tr>
+        <tr id="pass">
           <th>
         Confirmacion contrase&ntilde;a:
         </th>
         <th>
-          <input type="password" name="passwrd2">
+          <input type="password" name="passwrd2" id="confirm_password">
           </th>
         </tr>
         <tr>
           <th>
           </th>
           <th>
+<<<<<<< HEAD
             <input type="button" value="Registrars" id="Registrarse">
+=======
+            <input type="submit" value="Registrarse" name="Registrarse" id="Registrarse">
+>>>>>>> master
           </th>
         </tr>
       </table>

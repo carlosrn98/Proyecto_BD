@@ -7,7 +7,7 @@
   $username=$_GET['nombre'];
 
   $lugarSearch=$_POST['Lugares'];
-  
+
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
   $template->addBlockfile("CONTENIDO", "INICIO", "usuario.html");
@@ -83,7 +83,7 @@
     //fin del query para los contactos
 
     //query para sacar los posts
-    $query = "SELECT pf_usuarios.nombre AS nombreU, apellido, fecha, nombreUsr, pf_usuarios.idUsuario AS idU, comentario, pf_lugaresTuristicos.nombre AS nombreL, descripcion FROM pf_usuarios RIGHT JOIN pf_contactos ON pf_usuarios.idUsuario=pf_contactos.idUsuario RIGHT JOIN pf_posts ON  pf_contactos.idUsuario= pf_posts.idUsuario LEFT JOIN pf_lugaresTuristicos USING(idLugar) WHERE usuarioPrincipal=$idUsuarioPrincipal ORDER BY fecha desc";
+    $query = "SELECT idLugar, pf_usuarios.nombre AS nombreU, apellido, fecha, nombreUsr, pf_usuarios.idUsuario AS idU, comentario, pf_lugaresTuristicos.nombre AS nombreL, descripcion FROM pf_usuarios RIGHT JOIN pf_contactos ON pf_usuarios.idUsuario=pf_contactos.idUsuario RIGHT JOIN pf_posts ON  pf_contactos.idUsuario= pf_posts.idUsuario LEFT JOIN pf_lugaresTuristicos USING(idLugar) WHERE usuarioPrincipal=$idUsuarioPrincipal ORDER BY fecha desc";
     $result = mysqli_query($link, $query) or die("Query 5 failed");
     while($line = mysqli_fetch_assoc($result)){
       $template->setCurrentBlock("NPosts");
@@ -97,6 +97,7 @@
       $template->setVariable("ID", $line['idU']);
       $template->setVariable("IDP", $idUsuarioPrincipal);
       $template->setVariable("FECHA", $line['fecha']);
+      $template->setVariable("IDL", $line['idLugar']);
 
       $template->parseCurrentBlock("NPosts");
     }

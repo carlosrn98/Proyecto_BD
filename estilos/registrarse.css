@@ -9,6 +9,10 @@ table{
   margin-top: 60px;
 }
 
+#message{
+  font-size: 15px;
+}
+
 input{
   line-height: 30px;
   border-radius: 10px;
