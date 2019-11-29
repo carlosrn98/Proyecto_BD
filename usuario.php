@@ -11,7 +11,11 @@
   $template->setCurrentBlock("INICIO");
   $template->setVariable("TITULO", "Página de $username");
   $template->addBlockfile("CONTENIDO", "INICIO", "usuario.html");
+
   $idUsuarioPrincipal=$_GET['token'];
+
+  $flag=0;
+  $flagL=0;
 
   $link = mysqli_connect($cfgServer['host'], $cfgServer['user'], $cfgServer['password']) or die('Could not connect: ' . mysqli_error($link));
   mysqli_select_db($link, $cfgServer['dbname']) or die("Could not select database");
@@ -21,10 +25,18 @@
     $query="SELECT idUsuario, nombreUsr FROM pf_usuarios WHERE nombreUsr='$usernameSearch'";
     $result = mysqli_query($link, $query) or die("Query 2 failed");
     while($line = mysqli_fetch_assoc($result)){
+      $flag=1;
       $id=$line['idUsuario'];
       $user=$line['nombreUsr'];
     }
     mysqli_free_result($result);
+
+    if($flag==1){
+      //query que agrega busqueda en historial
+      $query="INSERT INTO pf_historial(fecha, idUsuario, busqueda) VALUES(CURRENT_TIMESTAMP(), $idUsuarioPrincipal, '$user')";
+      mysqli_query($link, $query) or die("Query 2 failed");
+    }//if
+
 
     header("location: perfilUsuario.php?idP=$idUsuarioPrincipal&id=$id&nom=$user");
   }
@@ -32,10 +44,17 @@
     $query="SELECT idLugar, nombre FROM pf_lugaresTuristicos WHERE nombre='$lugarSearch'";
     $result = mysqli_query($link, $query) or die("Query 2 failed");
     while($line = mysqli_fetch_assoc($result)){
+      $flagL=1;
       $idLugar=$line['idLugar'];
       $nombreLugar=$line['nombre'];
     }
     mysqli_free_result($result);
+
+    if($flagL==1){
+      //query que agrega busqueda en historial
+      $query="INSERT INTO pf_historial(fecha, idUsuario, busqueda) VALUES(CURRENT_TIMESTAMP(), $idUsuarioPrincipal, '$nombreLugar')";
+      mysqli_query($link, $query) or die("Query 2 failed");
+    }//if
 
     header("location: lugar.php?idP=$idUsuarioPrincipal&idLugar=$idLugar&nomL=$nombreLugar");
   }
