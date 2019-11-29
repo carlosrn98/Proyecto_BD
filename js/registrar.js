@@ -4,17 +4,27 @@ $(document).ready(function(){
  $("#Registrarse").click(function (e){
    alertas="";
    e.preventDefault();
-   if ( !ExpCadena.test( $("#nombre").val() ) )
-     alertas="Ningun campo puede tener ningun caracter especial";
-   if ( !ExpCadena.test( $("#apellido").val() ) )
-     alertas="Ningun campo puede tener ningun caracter especial";
-   if ( !ExpCadena.test( $("#usuario").val() ) )
-     alertas="Ningun campo puede tener ningun caracter especial";
-   if ( !ExpCadena.test( $("#password").val() ) )
-     alertas="Ningun campo puede tener ningun caracter especial";
-   if ( !ExpCadena.test( $("#confirm_password").val() ) )
-     alertas="Ningun campo puede tener ningun caracter especial";
-    if(alertas)
+   if ( !ExpCadena.test( $("#nombre").val() ) ){
+     alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
+     $('#nombre').css('background-color', 'red');
+   }
+   if ( !ExpCadena.test( $("#apellido").val() ) ){
+     alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
+     $('#apellido').css('background-color', 'red');
+   }
+   if ( !ExpCadena.test( $("#usuario").val() ) ){
+     alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
+     $('#usuario').css('background-color', 'red');
+   }
+   if ( !ExpCadena.test( $("#password").val() ) ){
+     alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
+     $('#password').css('background-color', 'red');
+   }
+   if ( !ExpCadena.test( $("#confirm_password").val() ) ){
+     alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
+     $('#confirm_password').css('background-color', 'red');
+   }
+    if(alertas && ($('#password').val() != $('#confirm_password').val()))
       alert(alertas);
     else {
       alert("Eso compa");
