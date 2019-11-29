@@ -13,6 +13,10 @@ table{
   font-size: 15px;
 }
 
+#message2{
+  font-size: 15px;
+}
+
 input{
   line-height: 30px;
   border-radius: 10px;
