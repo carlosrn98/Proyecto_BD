@@ -22,15 +22,6 @@ body{
 
 }
 
-#link_maps:link{
-  color: white;
-}
-
-#link_maps:visited{
-  color: white;
-  font-size: 50px;
-}
-
 .posts{
   color:white;
   border-style:solid;
@@ -49,4 +40,12 @@ body{
   border-color:#000000;
   background-color: #0e3e9e;
   border-radius: 15px;
+}
+
+#link_maps:link{
+  color: white;
+}
+
+#link_maps:visited{
+  color: white;
 }
