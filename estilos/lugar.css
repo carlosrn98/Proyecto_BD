@@ -22,11 +22,11 @@ body{
 
 }
 
-a:link{
+#link_maps:link{
   color: white;
 }
 
-a:visited{
+#link_maps:visited{
   color: white;
 }
 
