@@ -11,29 +11,28 @@
         <tr>
           <th><img src="./estilos/logo.jpg"></th>
           <!-- BEGIN USUARIO -->
-          <form name="buscarPersona" action="./usuario.php?token={IDP}" method="post">
+          <form name="buscarPersona" action="./admin.php?idP={IDP}" method="post">
 
           <th><input type="search" name="Personas" list="Persona" placeholder="Busca una persona"><datalist id="Persona">
             <!-- BEGIN NPersonas -->
-              <option  value="{NOMBRE_USR}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO}</option>
+              <option  value="{NOMBRE_USR}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({TIPO})</option>
             <!-- END NPersonas -->
           </th>
           <th><input type="submit" name="enter" value="Buscar"></th>
           </form>
 
-          <form name="buscarLugar" action="./usuario.php?token={IDP}" method="post">
+          <form name="buscarLugar" action="./admin.php?idP={IDP}" method="post">
           <th><input type="search" name="Lugares" list="Lugar" placeholder="Busca un lugar"><datalist id="Lugar">
             <!-- BEGIN NLugares -->
-            <option value='{LUGARES_NOMBRE}'>({CATEGORIA})</option>
+              <option value='{LUGARES_NOMBRE}'>({CATEGORIA})</option>
             <!-- END NLugares -->
           </th>
           <th><input type="submit" name="enterL" value="Buscar"></th>
           </form>
 
-          <th><a id="Link_perfil" href="./invitaciones.php?idP={IDP}">Invitaciones</a></th>
-          <th><a id="Link_perfil" href="./historial.php?idP={IDP}">Historial</a></th>
+          <th><a id="Link_perfil" href="./agregarLugar.php?idP={IDP}&nom={NOMBRE_USR}">Agregar lugar</a></th>
 
-          <th> <a id="Link_perfil" href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">Hola, {NOMBRE_USR} </a></th>
+          <th> <a id="Link_perfil" href="./perfilUsuarioAdmin.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">Hola, {NOMBRE_USR} </a></th>
           <!-- END USUARIO -->
         </tr>
 
@@ -45,21 +44,13 @@
         <!-- BEGIN NPosts -->
 
         <div class="post">
-          <h3><a id="Link_usuario"href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></h3> <p> {FECHA}</p>
+          <h3><a id="Link_usuario"href="./perfilUsuarioAdmin.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></h3> <p> {FECHA}</p>
           <p>{COMENTARIO}</p>
           <p>Lugar: <a id="Link_lugar" href="./lugar.php?idP={IDP}&idLugar={IDL}&nomL={LUGAR_NOMBRE}">{LUGAR_NOMBRE}</a></p>
           <p>Descripci&oacuten: {LUGAR_DESCRIPCION}</p>
 
         </div><br>
         <!-- END NPosts -->
-      </div>
-      <div class="contactos" id="colores">
-        <h2>Siguiendo</h2>
-        <div id="contacto">
-          <!-- BEGIN NContactos -->
-          <p><a id="Link_contacto" href="./perfilUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}">{USUARIOS_NOMBRE} {USUARIOS_APELLIDO} ({NOMBRE_USR})</a></p>
-          <!-- END NContactos -->
-        </div>
       </div>
     </div>
 

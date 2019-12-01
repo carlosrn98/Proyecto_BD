@@ -19,7 +19,7 @@
     header("location: usuario.php?token=$idUsuarioPrincipal&nombre=$username");
   }
   else if($flag==1){
-    header("location: admin.php");
+    header("location: admin.php?idP=$idUsuarioPrincipal&nombre=$username");
   }
   else{
     header("location: index.php");

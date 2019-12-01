@@ -59,7 +59,7 @@
     header("location: lugar.php?idP=$idUsuarioPrincipal&idLugar=$idLugar&nomL=$nombreLugar");
   }
   else{
-    $query = "SELECT nombre, apellido, nombreUsr, idUsuario FROM pf_usuarios";
+    $query = "SELECT nombre, apellido, nombreUsr, idUsuario FROM pf_usuarios WHERE tipoUsuario=2";
     $result = mysqli_query($link, $query) or die("Query 2 failed");
     while($line = mysqli_fetch_assoc($result)){
       $template->setCurrentBlock("NPersonas");
@@ -73,12 +73,14 @@
     }
     mysqli_free_result($result);
 
-    $query = "SELECT nombre FROM pf_lugaresTuristicos";
+    $query = "SELECT nombre, categoria FROM pf_lugaresTuristicos LEFT JOIN pf_categorias USING(idCategoria)";
     $result = mysqli_query($link, $query) or die("Query 3 failed");
     while($line = mysqli_fetch_assoc($result)){
       $template->setCurrentBlock("NLugares");
 
       $template->setVariable("LUGARES_NOMBRE", $line['nombre']);
+      $template->setVariable("CATEGORIA", $line['categoria']);
+
 
       $template->parseCurrentBlock("NLugares");
     }

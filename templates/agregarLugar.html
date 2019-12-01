@@ -1,0 +1,32 @@
+<header>
+  <link rel="stylesheet" href="./estilos/lugar.css" text="text/css">
+</header>
+<body>
+
+  <div class="regresar">
+      <form name="regresar" action="">
+        <input type="button" value="Regresar" name="regresa" onclick="goBack()">
+      </form>
+  </div>
+
+  <div class="infoLugar">
+    <h3>AGREGAR NUEVO LUGAR</h3>
+    <!-- BEGIN NUsuario -->
+    <form name="agregarLugar" action="./agregarLugarBD.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+    <!-- END NUsuario -->
+      Nombre del lugar: <input type="text" name="nombre" placeholder="Obligatorio"><br>
+      Descripci&oacuten: <input type="text" name="descripcion" placeholder="Opcional"><br>
+      Latitud: <input type="text" name="latitud" placeholder="Obligatorio"><br>
+      Longitud: <input type="text" name="longitud" placeholder="Obligatorio"><br>
+      Categor&iacutea: <input type="search" name="categoria" list="categorias" placeholder="Obligatorio">
+      <datalist id="categorias">
+        <!-- BEGIN NCategoria -->
+        <option value='{CATEGORIA}'></option>
+        <!-- END NCategoria -->
+      </datalist>
+      <br>Imagen del lugar:
+      <br><input type="submit" name="agregar" value="Agregar">
+    </form>
+
+  </div>
+</body>
