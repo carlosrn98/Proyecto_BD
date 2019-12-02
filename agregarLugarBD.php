@@ -12,7 +12,6 @@
   $latitud=$_POST['latitud'];
   $longitud=$_POST['longitud'];
   $categoria=$_POST['categoria'];
-  //print "$categoria";
   //query para buscar id de categoria
   $query="SELECT idCategoria FROM pf_categorias WHERE categoria='$categoria'";
   $result = mysqli_query($link, $query) or die("Query 3 failed");
@@ -23,6 +22,7 @@
 
   $agregar="INSERT INTO pf_lugaresTuristicos(nombre, descripcion, latitud, longitud, idCategoria) VALUES('$nombreLugar','$desc',$latitud, $longitud, $idCategoria)";
   mysqli_query($link, $agregar) or die("Query B failed");
+  @mysqli_close($link);
 
   header("location: admin.php?idP=$idUsuarioPrincipal&nombre=$nombre");
 
