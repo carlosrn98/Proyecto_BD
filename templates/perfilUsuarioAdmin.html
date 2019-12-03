@@ -11,54 +11,33 @@
   </div>
 
   <div class="infoUsuario">
-    <div class="userInfo">
     <!-- BEGIN NUsuario -->
-    <h1>{NOMBRE_USR}</h1>
-    <p>Nombre: {NOMBRE} {APELLIDO}</p>
-    <p>Email: {EMAIL}</p>
-    <p>Fecha de nacimiento: {FECHAN}</p>
-    <p>G&eacutenero: {GENERO}</p>
-    <p>Fecha de registro: {FECHAR}</p>
-    <p>Tipo de usuario: {TIPO}</p>
-    <!-- END NUsuario -->
-    </div>
     <div class="editarUsuario">
-      <!-- BEGIN usuario -->
       <form name="editarNombreUsr" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Nombre de usuario: <input type="text" name="nombreUsr">
+        Nombre de usuario: <input type="text" name="nombreUsr" value="{NOMBRE_USR}">
         <input type="submit" name="enterNombreUsr" value="Enter">
       </form>
       <form name="editarNombre" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Nombre: <input type="text" name="nombre">
+        Nombre: <input type="text" name="nombre" value="{NOMBRE}">
         <input type="submit" name="enterNombre" value="Enter">
       </form>
       <form name="editarApellido" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Apellido: <input type="text" name="apellido">
+        Apellido: <input type="text" name="apellido" value="{APELLIDO}">
         <input type="submit" name="enterApellido" value="Enter">
       </form>
       <form name="editarEmail" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Email: <input type="text" name="email">
+        Email: <input type="text" name="email" value="{EMAIL}">
         <input type="submit" name="enterEmail" value="Enter">
       </form>
       <form name="editarFechaN" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Fecha de nacimiento: <input type="date" name="fechaN">
+        Fecha de nacimiento: <input type="date" name="fechaN" value="{FECHAN}">
         <input type="submit" name="enterFechaN" value="Enter">
-      </form>
-      <form name="editarGenero" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Género: <input type="radio" name="genero" value="Hombre">
-        <input type="radio" name="genero" value="Mujer">
-        <input type="radio" name="genero" value="Otro">
-        <input type="submit" name="enterGenero" value="Enter">
-      </form>
-      <form name="editarFechaR" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
-        Fecha de registro: <input type="date" name="fechaR">
-        <input type="submit" name="enterFechaR" value="Enter">
       </form>
       <form name="editarFoto" action="" method="post">
 
       </form>
-      <!-- END usuario -->
     </div>
+    <!-- END NUsuario -->
   </div>
   <br>
 

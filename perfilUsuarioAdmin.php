@@ -28,16 +28,11 @@
   $template->setVariable("GENERO", $line['genero']);
   $template->setVariable("FECHAR", $line['fechaRegistro']);
   $template->setVariable("TIPO", $line['tipo']);
-
-  mysqli_free_result($result);
-  $flag=0;
-
-  $template->setCurrentBlock("usuario");
-
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("NOMBRE_USR", $username);
 
-  $template->parseCurrentBlock("usuario");
+  mysqli_free_result($result);
+  $flag=0;
 
   //query para sacar los posts
   $query="set sql_mode=''";
