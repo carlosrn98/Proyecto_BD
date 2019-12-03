@@ -15,7 +15,7 @@
   $template->addBlockfile("CONTENIDO", "INICIO", "invitaciones.html");
 
 
-  $query="SELECT nombreUsr, idLugar, fecha, pf_lugaresTuristicos.nombre AS nombreL FROM pf_lugaresTuristicos RIGHT JOIN pf_invitaciones USING(idLugar) JOIN pf_contactos USING(idContacto ) LEFT JOIN pf_usuarios USING(idUsuario) WHERE usuarioPrincipal = $idUsuarioPrincipal AND idInvitacion IS NOT NULL";
+  $query="SELECT nombreUsr, idLugar, fecha, pf_lugaresTuristicos.nombre AS nombreL FROM pf_lugaresTuristicos RIGHT JOIN pf_invitaciones USING(idLugar) JOIN pf_contactos USING(idContacto ) LEFT JOIN pf_usuarios USING(idUsuario) WHERE usuarioPrincipal = $idUsuarioPrincipal AND idInvitacion IS NOT NULL ORDER BY fecha desc";
   $result = mysqli_query($link, $query) or die("Query 2 failed");
   while($line = mysqli_fetch_assoc($result)){
     $template->setCurrentBlock("NInvitaciones");
@@ -25,7 +25,7 @@
     $template->setVariable("FECHA", $line['fecha']);
     $template->setVariable("IDL", $line['idLugar']);
     $template->setVariable("IDP", $idUsuarioPrincipal);
-    
+
     $template->parseCurrentBlock("NInvitaciones");
   }
   mysqli_free_result($result);

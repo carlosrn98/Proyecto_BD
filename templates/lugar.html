@@ -36,13 +36,18 @@
       <input type="submit" name="enter" value="Post">
     </form>
 
-    <form name="botonInv" action="" method="post">
+    <form name="botonInv" action="mandarInv.php?idP={IDP}&idLugar={IDL}&nomL={NOMBRE_LUGAR}" method="post">
+      <!-- END NLugar -->
       <input type="search" name="Personas" list="Persona" placeholder="Busca una persona">
       <datalist id="Persona">
+        <!-- BEGIN NUsuario -->
+        <option value="{NOMBRE_USR}">{NOMBRE} {APELLIDO}</option>
+        <!-- END NUsuario -->
       </datalist>
       <input type="submit" name="enterI" value="Invitar">
     </form>
-    <!-- END NLugar -->
+
+
     <div class="my-rating">
     </div>
   </div>
@@ -57,7 +62,7 @@
     <div class="post">
       <p>{FECHA}</p>
       <p>{COMENTARIO}</p>
-      <p>Lugar: <a id="Link_lugar" href="url">{LUGAR_NOMBRE}</a></p>
+      <p>Lugar: {LUGAR_NOMBRE}</p>
       <p>Descripci&oacuten: {LUGAR_DESCRIPCION}</p>
     </div><br>
     <!-- END NPosts -->
