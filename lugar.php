@@ -25,24 +25,40 @@
   }
   mysqli_free_result($result);
 
+  //query para saber si ya califico o no
+  // $query="SELECT * FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
+  // $result = mysqli_query($link, $query) or die("query failed");
+  // $line = mysqli_fetch_assoc($result);
+  // mysqli_free_result($result);
+
   $query="SELECT * FROM pf_lugaresTuristicos LEFT JOIN pf_categorias USING(idCategoria) WHERE idLugar=$idLugar";
   $result = mysqli_query($link, $query) or die("query failed");
-  while($line = mysqli_fetch_assoc($result)){
-    $template->setCurrentBlock("NLugar");
-    //foto
-    $template->setVariable("NOMBRE_LUGAR", $line['nombre']);
-    $template->setVariable("DESC", $line['descripcion']);
-    $template->setVariable("LATITUD", $line['latitud']);
-    $template->setVariable("LONGITUD", $line['longitud']);
-    $template->setVariable("CATEGORIA", $line['categoria']);
-    $template->setVariable("IDP", $idUsuarioPrincipal);
-    $template->setVariable("IDL", $line['idLugar']);
-    $template->setVariable("NOMBRE_USR", $username);
+  $line = mysqli_fetch_assoc($result);
 
-    $template->parseCurrentBlock("NLugar");
-  }
+  $query2="SELECT avg(calificacion) as cal FROM pf_calificaciones WHERE idLugar=$idLugar";
+  $result2 = mysqli_query($link, $query2) or die("query failed");
+  $line2 = mysqli_fetch_assoc($result2);
+  // if($line2['avg(calificacion)']==NULL)
+  //   $calificacion=0;
+  // else
+  //   $calificacion=$line2['avg(calificacion)'];
+
+  $template->setCurrentBlock("NLugar");
+  //foto
+  $template->setVariable("NOMBRE_LUGAR", $line['nombre']);
+  $template->setVariable("DESC", $line['descripcion']);
+  $template->setVariable("LATITUD", $line['latitud']);
+  $template->setVariable("LONGITUD", $line['longitud']);
+  $template->setVariable("CATEGORIA", $line['categoria']);
+  $template->setVariable("IDP", $idUsuarioPrincipal);
+  $template->setVariable("IDL", $line['idLugar']);
+  $template->setVariable("NOMBRE_USR", $username);
+  $template->setVariable("calificacion", $line2['cal']);
+
+  $template->parseCurrentBlock("NLugar");
+
   mysqli_free_result($result);
-
+  mysqli_free_result($result2);
 
 
   $query="SELECT nombreUsr, nombre, apellido FROM pf_contactos LEFT JOIN pf_usuarios USING(idUsuario) WHERE usuarioPrincipal=$idUsuarioPrincipal AND NOT idUsuario=$idUsuarioPrincipal";
@@ -82,3 +98,8 @@
   @mysqli_close($link);
   $template->show();
 ?>
+
+<script>
+   var usuario = "<?php echo $idUsuarioPrincipal; ?>";
+   var lugar = "<?php echo $idLugar; ?>";
+</script>

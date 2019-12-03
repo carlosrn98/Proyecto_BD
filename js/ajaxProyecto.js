@@ -16,15 +16,6 @@ function seguirU(ele, ele1){
   return true;
 }
 
-$(document).ready(function(){
-$(".my-rating").starRating({
-    starSize: 25,
-    callback: function(currentRating, $el){
-        // make a server call here
-    }
-});
-});
-
 function cambiarseguir(elemento){
   if(elemento.value==="Seguir")
     elemento.value="Dejar de seguir";
