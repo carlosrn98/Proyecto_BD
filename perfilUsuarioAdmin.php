@@ -30,6 +30,7 @@
   $template->setVariable("TIPO", $line['tipo']);
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("NOMBRE_USR", $username);
+  $template->setVariable("ID", $id);
 
   mysqli_free_result($result);
   $flag=0;
