@@ -8,7 +8,7 @@
   var defaults = {
     totalStars: 5,
     useFullStars: false,
-    starShape: 'straight',
+    starShape: 'rounded',
     emptyColor: 'lightgray',
     hoverColor: 'orange',
     activeColor: 'gold',
@@ -24,7 +24,7 @@
     strokeWidth: 4,
     strokeColor: 'black',
     initialRating: 0,
-    starSize: 40,
+    starSize: 2000,
     callback: noop,
     onHover: noop,
     onLeave: noop
