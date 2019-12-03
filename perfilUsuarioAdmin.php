@@ -17,18 +17,18 @@
 
   $query="SELECT * FROM pf_usuarios LEFT JOIN pf_tiposUsuario USING(tipoUsuario) WHERE idUsuario=$id";
   $result = mysqli_query($link, $query) or die("query failed");
-  $line = mysqli_fetch_assoc($result);
-  $template->setCurrentBlock("NUsuario");
-  //foto
-  $template->setVariable("NOMBRE_USR", $line['nombreUsr']);
-  $template->setVariable("NOMBRE", $line['nombre']);
-  $template->setVariable("APELLIDO", $line['apellido']);
-  $template->setVariable("EMAIL", $line['email']);
-  $template->setVariable("FECHAN", $line['fechaNacimiento']);
-  $template->setVariable("GENERO", $line['genero']);
-  $template->setVariable("FECHAR", $line['fechaRegistro']);
-  $template->setVariable("TIPO", $line['tipo']);
-
+  while($line = mysqli_fetch_assoc($result)){
+    $template->setCurrentBlock("NUsuario");
+    //foto
+    $template->setVariable("NOMBRE_USR", $line['nombreUsr']);
+    $template->setVariable("NOMBRE", $line['nombre']);
+    $template->setVariable("APELLIDO", $line['apellido']);
+    $template->setVariable("EMAIL", $line['email']);
+    $template->setVariable("FECHAN", $line['fechaNacimiento']);
+    $template->setVariable("GENERO", $line['genero']);
+    $template->setVariable("FECHAR", $line['fechaRegistro']);
+    $template->setVariable("TIPO", $line['tipo']);
+  }
   mysqli_free_result($result);
   $flag=0;
 
