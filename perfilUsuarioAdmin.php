@@ -32,6 +32,13 @@
   mysqli_free_result($result);
   $flag=0;
 
+  $template->setCurrentBlock("usuario");
+
+  $template->setVariable("IDP", $idUsuarioPrincipal);
+  $template->setVariable("NOMBRE_USR", $username);
+
+  $template->parseCurrentBlock("usuario");
+
   //query para sacar los posts
   $query="set sql_mode=''";
   $result = mysqli_query($link, $query) or die("Query 5 failed");

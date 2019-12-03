@@ -22,8 +22,42 @@
     <p>Tipo de usuario: {TIPO}</p>
     <!-- END NUsuario -->
     </div>
-    <div class="modificacionUsuario">
-      
+    <div class="editarUsuario">
+      <!-- BEGIN usuario -->
+      <form name="editarNombreUsr" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Nombre de usuario: <input type="text" name="nombreUsr">
+        <input type="submit" name="enterNombreUsr" value="Enter">
+      </form>
+      <form name="editarNombre" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Nombre: <input type="text" name="nombre">
+        <input type="submit" name="enterNombre" value="Enter">
+      </form>
+      <form name="editarApellido" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Apellido: <input type="text" name="apellido">
+        <input type="submit" name="enterApellido" value="Enter">
+      </form>
+      <form name="editarEmail" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Email: <input type="text" name="email">
+        <input type="submit" name="enterEmail" value="Enter">
+      </form>
+      <form name="editarFechaN" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Fecha de nacimiento: <input type="date" name="fechaN">
+        <input type="submit" name="enterFechaN" value="Enter">
+      </form>
+      <form name="editarGenero" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Género: <input type="radio" name="genero" value="Hombre">
+        <input type="radio" name="genero" value="Mujer">
+        <input type="radio" name="genero" value="Otro">
+        <input type="submit" name="enterGenero" value="Enter">
+      </form>
+      <form name="editarFechaR" action="editarUsuario.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+        Fecha de registro: <input type="date" name="fechaR">
+        <input type="submit" name="enterFechaR" value="Enter">
+      </form>
+      <form name="editarFoto" action="" method="post">
+
+      </form>
+      <!-- END usuario -->
     </div>
   </div>
   <br>
