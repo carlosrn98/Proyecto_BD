@@ -22,7 +22,6 @@ body{
 
 }
 
-
 .posts{
   color:white;
   border-style:solid;
@@ -43,6 +42,10 @@ body{
   border-radius: 15px;
 }
 
-#Link_lugar{
-  color:white;
+#link_maps:link{
+  color: #FFFFFF;
+}
+
+#link_maps:visited{
+  color: #FFFFFF;
 }
