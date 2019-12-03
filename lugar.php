@@ -26,10 +26,11 @@
   mysqli_free_result($result);
 
   //query para saber si ya califico o no
-  // $query="SELECT * FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
-  // $result = mysqli_query($link, $query) or die("query failed");
-  // $line = mysqli_fetch_assoc($result);
-  // mysqli_free_result($result);
+  $query="SELECT calificacion FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
+  $result = mysqli_query($link, $query) or die("query failed");
+  $line = mysqli_fetch_assoc($result);
+  $bandera=$line['calificacion'];
+  mysqli_free_result($result);
 
   $query="SELECT * FROM pf_lugaresTuristicos LEFT JOIN pf_categorias USING(idCategoria) WHERE idLugar=$idLugar";
   $result = mysqli_query($link, $query) or die("query failed");
@@ -102,4 +103,5 @@
 <script>
    var usuario = "<?php echo $idUsuarioPrincipal; ?>";
    var lugar = "<?php echo $idLugar; ?>";
+   var bandera = "<?php echo $bandera; ?>";
 </script>
