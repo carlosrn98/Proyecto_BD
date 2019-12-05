@@ -1,5 +1,6 @@
 <head>
   <link rel="stylesheet" href="./estilos/lugar.css" text="text/css">
+  <script type="text/jscript" src="./js/lugar.js"></script>
 </head>
 <body>
 
@@ -14,20 +15,20 @@
     <!-- BEGIN NUsuario -->
     <form name="agregarLugar" action="./agregarLugarBD.php?idP={IDP}&nom={NOMBRE_USR}" method="post" enctype="multipart/form-data">
     <!-- END NUsuario -->
-      Nombre del lugar:   <input type="text" name="nombre" placeholder="Obligatorio"><br>
-      Descripci&oacuten:   <input type="text" name="descripcion" placeholder="Opcional"><br>
-      Latitud:   <input type="text" name="latitud" placeholder="Obligatorio"><br>
-      Longitud:   <input type="text" name="longitud" placeholder="Obligatorio"><br>
+      Nombre del lugar:   <input type="text" name="nombre" placeholder="Obligatorio" id="nombre"><br>
+      Descripci&oacuten:   <input type="text" name="descripcion" placeholder="Opcional" id="descripcion"><br>
+      Latitud:   <input type="text" name="latitud" placeholder="Obligatorio" id="latitud"><br>
+      Longitud:   <input type="text" name="longitud" placeholder="Obligatorio" id="longitud"><br>
       <a href="https://www.google.com/maps" target="_blank" class="link_maps"> Link a google maps </a><br>
-      Categor&iacutea: <input type="search" name="categoria" list="categorias" placeholder="Obligatorio">
-      <datalist id="categorias">
+      Categor&iacutea: <input type="search" name="categoria" list="categorias" placeholder="Obligatorio" id="categoria">
+      <datalist id="categorias" id="categoria">
         <!-- BEGIN NCategoria -->
         <option value='{CATEGORIA}'></option>
         <!-- END NCategoria -->
       </datalist>
       <br>Imagen del lugar:
       <input type="file" name="img">
-      <br><input type="submit" name="agregar" value="Agregar">
+      <br><input type="submit" name="agregar" value="Agregar" id="agregar">
     </form>
   </div>
 </body>

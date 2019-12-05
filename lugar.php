@@ -26,7 +26,7 @@
   mysqli_free_result($result);
 
   //query para saber si ya califico o no
-<<<<<<< HEAD
+
   $query="SELECT calificacion FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
   $result = mysqli_query($link, $query) or die("query failed");
   if($line = mysqli_fetch_assoc($result))
@@ -34,13 +34,7 @@
   else
     $bandera=0;
   mysqli_free_result($result);
-=======
-  // $query="SELECT calificacion FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
-  // $result = mysqli_query($link, $query) or die("query failed");
-  // $line = mysqli_fetch_assoc($result);
-  // //$bandera=$line['CALIFICACION'];
-  // mysqli_free_result($result);
->>>>>>> 56648425748372773bc8aaa7f355d7afcd2a29e0
+
 
   $query="SELECT * FROM pf_lugaresTuristicos LEFT JOIN pf_categorias USING(idCategoria) WHERE idLugar=$idLugar";
   $result = mysqli_query($link, $query) or die("query failed");
@@ -60,11 +54,7 @@
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("IDL", $line['idLugar']);
   $template->setVariable("NOMBRE_USR", $username);
-<<<<<<< HEAD
   $template->setVariable("calificacion", $line2['cal']);
-=======
-  $template->setVariable("CALIFICACION", $cal);
->>>>>>> 56648425748372773bc8aaa7f355d7afcd2a29e0
 
   $template->parseCurrentBlock("NLugar");
 

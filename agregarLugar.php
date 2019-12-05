@@ -38,3 +38,7 @@
   @mysqli_close($link);
   $template->show();
 ?>
+<script>
+  var nombreLT="<?php echo $nombre; ?>";
+  var idP="<?php echo $idUsuarioPrincipal; ?>";
+</script>
