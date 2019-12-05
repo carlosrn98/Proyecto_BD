@@ -12,7 +12,7 @@
   <div class="infoLugar">
     <h3>AGREGAR NUEVO LUGAR</h3>
     <!-- BEGIN NUsuario -->
-    <form name="agregarLugar" action="./agregarLugarBD.php?idP={IDP}&nom={NOMBRE_USR}" method="post">
+    <form name="agregarLugar" action="./agregarLugarBD.php?idP={IDP}&nom={NOMBRE_USR}" method="post" enctype="multipart/form-data">
     <!-- END NUsuario -->
       Nombre del lugar:   <input type="text" name="nombre" placeholder="Obligatorio"><br>
       Descripci&oacuten:   <input type="text" name="descripcion" placeholder="Opcional"><br>
@@ -25,7 +25,8 @@
         <option value='{CATEGORIA}'></option>
         <!-- END NCategoria -->
       </datalist>
-      <br>Imagen del lugar:   <input type="file">
+      <br>Imagen del lugar:
+      <input type="file" name="img">
       <br><input type="submit" name="agregar" value="Agregar">
     </form>
   </div>

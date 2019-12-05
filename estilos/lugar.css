@@ -42,10 +42,10 @@ body{
   border-radius: 15px;
 }
 
-#link_maps:link{
+.link_maps:link{
   color: #FFFFFF;
 }
 
-#link_maps:visited{
+.link_maps:visited{
   color: #FFFFFF;
 }
