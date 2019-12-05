@@ -1,6 +1,7 @@
 $(document).ready(function(){
   var flag=0;
   var ExpCadena = /^[a-zñÑáéíóúÁÉÍÓÚ]+(\s[a-zñÑáéíóúÁÉÍÓÚ]+)*$/i;
+  var ExpCadena2 = /^[a-zñÑáéíóúÁÉÍÓÚ0-9]+(\s[a-zñÑáéíóúÁÉÍÓÚ0-9]+)*$/i;
   var regexemail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
  $("#Registrarse").click(function (e){
    alertas="";
@@ -9,25 +10,48 @@ $(document).ready(function(){
      alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
      $('#nombre').css('background-color', 'red');
    }
+   else {
+     $('#nombre').css('background-color', 'white');
+   }
    if ( !ExpCadena.test( $("#apellido").val() ) ){
      alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
      $('#apellido').css('background-color', 'red');
    }
-   if ( !ExpCadena.test( $("#usuario").val() ) ){
+   else {
+     $('#apellido').css('background-color', 'white');
+   }
+   if ( !ExpCadena2.test( $("#usuario").val() ) ){
      alertas="Ningun campo puede tener ningun caracter especial o estar vacio";
      $('#usuario').css('background-color', 'red');
+   }
+   else {
+     $('#usuario').css('background-color', 'white');
    }
    if($("input[name='genero']:checked").length <=0){
      alertas+="\nNo ha seleccionado genero";
      $('#genero').css('background-color', 'red');
    }
+   else {
+     $('#genero').css('background-color', 'white');
+   }
    if(!regexemail.test( $("#NuevoCorreo").val() )){
      alertas+="\nFavor de meter un correo con formato xx@xx.xx";
      $('#NuevoCorreo').css('background-color', 'red');
    }
-   if ( ( $("#password").val() ) != $('#confirm_password').val()){
-     alertas+="\nLas contrasenas tienen que coincidir";
+   else {
+     $('#NuevoCorreo').css('background-color', 'white');
+   }
+   if ( ( $("#password").val() ) == ""){
+     alertas+="\nDebes de tener una contrasena";
      $('#password').css('background-color', 'red');
+   }
+   else {
+     if ( ( $("#password").val() ) != $('#confirm_password').val()){
+       alertas+="\nLas contrasenas tienen que coincidir";
+       $('#password').css('background-color', 'red');
+     }
+     else
+      $('#password').css('background-color', 'white');
    }
     if(alertas)
       alert(alertas);

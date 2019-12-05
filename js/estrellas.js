@@ -1,8 +1,4 @@
 $(document).ready(function(){
-    // if(bandera>=1)
-    //   $("input[type=radio]").attr('disabled', true);
-    // else
-    //   $("input[type=radio]").attr('disabled', false);
     $(".rating input:radio").attr("checked", false);
 
     $('.rating input').click(function () {
