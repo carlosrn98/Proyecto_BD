@@ -40,10 +40,6 @@
   $result2 = mysqli_query($link, $query2) or die("query failed");
   if($line2 = mysqli_fetch_assoc($result2))
     $cal=$line2['cal'];
-  // if($line2['avg(calificacion)']==NULL)
-  //   $calificacion=0;
-  // else
-  //   $calificacion=$line2['avg(calificacion)'];
 
   $template->setCurrentBlock("NLugar");
   //foto
