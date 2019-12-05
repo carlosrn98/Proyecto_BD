@@ -28,8 +28,10 @@
   //query para saber si ya califico o no
   $query="SELECT calificacion FROM pf_calificaciones WHERE idLugar=$idLugar AND idusuario=$idUsuarioPrincipal";
   $result = mysqli_query($link, $query) or die("query failed");
-  $line = mysqli_fetch_assoc($result);
-  $bandera=$line['calificacion'];
+  if($line = mysqli_fetch_assoc($result))
+    $bandera=$line['calificacion'];
+  else
+    $bandera=0;
   mysqli_free_result($result);
 
   $query="SELECT * FROM pf_lugaresTuristicos LEFT JOIN pf_categorias USING(idCategoria) WHERE idLugar=$idLugar";
@@ -38,8 +40,7 @@
 
   $query2="SELECT avg(calificacion) as cal FROM pf_calificaciones WHERE idLugar=$idLugar";
   $result2 = mysqli_query($link, $query2) or die("query failed");
-  if($line2 = mysqli_fetch_assoc($result2))
-    $cal=$line2['cal'];
+  $line2 = mysqli_fetch_assoc($result2);
 
   $template->setCurrentBlock("NLugar");
   //foto
@@ -51,7 +52,7 @@
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("IDL", $line['idLugar']);
   $template->setVariable("NOMBRE_USR", $username);
-  $template->setVariable("calificacion", $cal);
+  $template->setVariable("calificacion", $line2['cal']);
 
   $template->parseCurrentBlock("NLugar");
 
@@ -100,5 +101,5 @@
 <script>
    var usuario = "<?php echo $idUsuarioPrincipal; ?>";
    var lugar = "<?php echo $idLugar; ?>";
-   var bandera = "<?php echo $bandera; ?>";
+   var bandera="<?php echo $bandera; ?>";
 </script>

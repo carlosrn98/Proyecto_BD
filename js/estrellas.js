@@ -1,5 +1,9 @@
 $(document).ready(function(){
-    $(".rating input:radio").attr("checked", false);
+
+    if(bandera!=0){
+      $("input[type=radio]").attr('disabled', true);
+    }
+
 
     $('.rating input').click(function () {
         $(".rating span").removeClass('checked');
