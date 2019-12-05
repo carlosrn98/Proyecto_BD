@@ -17,24 +17,25 @@
         Nombre de usuario: <input type="text" name="nombreUsr" value="{NOMBRE_USR}">
         <input type="submit" name="enterNombreUsr" value="Enter">
       </form>
-      <form name="editarNombre" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP" method="post">
+      <form name="editarNombre" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}" method="post">
         Nombre: <input type="text" name="nombre" value="{NOMBRE}">
         <input type="submit" name="enterNombre" value="Enter">
       </form>
-      <form name="editarApellido" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP" method="post">
+      <form name="editarApellido" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}" method="post">
         Apellido: <input type="text" name="apellido" value="{APELLIDO}">
         <input type="submit" name="enterApellido" value="Enter">
       </form>
-      <form name="editarEmail" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP" method="post">
+      <form name="editarEmail" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}" method="post">
         Email: <input type="text" name="email" value="{EMAIL}">
         <input type="submit" name="enterEmail" value="Enter">
       </form>
-      <form name="editarFechaN" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP" method="post">
+      <form name="editarFechaN" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}" method="post">
         Fecha de nacimiento: <input type="date" name="fechaN" value="{FECHAN}">
         <input type="submit" name="enterFechaN" value="Enter">
       </form>
-      <form name="editarFoto" action="" method="post">
-
+      <form enctype="multipart/form-data" name="editarFoto" action="editarUsuario.php?id={ID}&nom={NOMBRE_USR}&idP={IDP}" method="post">
+        Imagen: <input type="file" name="image" >
+        <input type="submit" name="enterIm" value="Enter">
       </form>
     </div>
     <!-- END NUsuario -->

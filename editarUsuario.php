@@ -13,25 +13,32 @@
     $query="UPDATE pf_usuarios SET nombreUsr='$nuevoUsername' WHERE idUsuario=$idUsuarioModificado";
     mysqli_query($link, $query) or die("query failed");
   }
-  else if($_POST['enterNombre']){
+  else if(isset($_POST['enterNombre'])){
     $nuevoNombre=$_POST['nombre'];
     $query="UPDATE pf_usuarios SET nombre='$nuevoNombre' WHERE idUsuario=$idUsuarioModificado";
     mysqli_query($link, $query) or die("query failed");
   }
-  else if($_POST['enterApellido']){
+  else if(isset($_POST['enterApellido'])){
     $nuevoApellido=$_POST['apellido'];
     $query="UPDATE pf_usuarios SET apellido='$nuevoApellido' WHERE idUsuario=$idUsuarioModificado";
     mysqli_query($link, $query) or die("query failed");
   }
-  else if($_POST['enterEmail']){
+  else if(isset($_POST['enterEmail'])){
     $nuevoEmail=$_POST['email'];
     $query="UPDATE pf_usuarios SET email='$nuevoEmail' WHERE idUsuario=$idUsuarioModificado";
     mysqli_query($link, $query) or die("query failed");
   }
-  else if($_POST['enterFechaN']){
+  else if(isset($_POST['enterFechaN'])){
     $nuevaFecha=$_POST['fechaN'];
     $query="UPDATE pf_usuarios SET fechaNacimiento='$nuevaFecha' WHERE idUsuario=$idUsuarioModificado";
     mysqli_query($link, $query) or die("query failed");
+  }
+  else if(isset($_POST['enterIm']){
+    echo"asdf";
+    // $uploadDir='images/';
+    // $uploadFile=$uploadDir.$_FILES['image']['name'];
+    // move_uploaded_file($_FILES['image']['tmp_name'], $uploadFile);
+
   }
 
   $query="SELECT nombreUsr FROM pf_usuarios WHERE idUsuario=$idUsuarioModificado";
