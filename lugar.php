@@ -38,7 +38,8 @@
 
   $query2="SELECT avg(calificacion) as cal FROM pf_calificaciones WHERE idLugar=$idLugar";
   $result2 = mysqli_query($link, $query2) or die("query failed");
-  $line2 = mysqli_fetch_assoc($result2);
+  if($line2 = mysqli_fetch_assoc($result2))
+    $cal=$line2['cal'];
   // if($line2['avg(calificacion)']==NULL)
   //   $calificacion=0;
   // else
@@ -54,7 +55,7 @@
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("IDL", $line['idLugar']);
   $template->setVariable("NOMBRE_USR", $username);
-  $template->setVariable("calificacion", $line2['cal']);
+  $template->setVariable("calificacion", $cal);
 
   $template->parseCurrentBlock("NLugar");
 

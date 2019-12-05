@@ -5,7 +5,7 @@
   $idU=$_POST['idP'];
   $idLugar=$_POST['idL'];
   $cali=$_POST['cali'];
-  $query="INSERT INTO pf_calificaciones(calificacion,idLugar,idUsuario) VALUES ($cali,$idU,$idLugar)";
+  $query="INSERT INTO pf_calificaciones(calificacion,idLugar,idUsuario) VALUES ($cali,$idLugar,$idU)";
   $result = mysqli_query($link, $query) or die("query failed");
   @mysqli_close($link);
 ?>
