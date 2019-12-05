@@ -15,19 +15,17 @@
   $template->setVariable("TITULO", "$username");
   $template->addBlockfile("CONTENIDO", "INICIO", "perfilUsuarioAdmin.html");
 
-  $query="SELECT * FROM pf_usuarios LEFT JOIN pf_tiposUsuario USING(tipoUsuario) WHERE idUsuario=$id";
+  $query="SELECT img.nombre AS img, nombreUsr, usr.nombre as nombre, apellido, email, fechaNacimiento FROM pf_imagenesUsr img RIGHT JOIN  pf_usuarios usr USING(idUsuario) LEFT JOIN pf_tiposUsuario USING(tipoUsuario) WHERE idUsuario=$id";
   $result = mysqli_query($link, $query) or die("query failed");
   $line = mysqli_fetch_assoc($result);
   $template->setCurrentBlock("NUsuario");
   //foto
+  $template->setVariable("IMAGEN", $line['img']);
   $template->setVariable("NOMBRE_USR", $line['nombreUsr']);
   $template->setVariable("NOMBRE", $line['nombre']);
   $template->setVariable("APELLIDO", $line['apellido']);
   $template->setVariable("EMAIL", $line['email']);
   $template->setVariable("FECHAN", $line['fechaNacimiento']);
-  $template->setVariable("GENERO", $line['genero']);
-  $template->setVariable("FECHAR", $line['fechaRegistro']);
-  $template->setVariable("TIPO", $line['tipo']);
   $template->setVariable("IDP", $idUsuarioPrincipal);
   $template->setVariable("NOMBRE_USR", $username);
   $template->setVariable("ID", $id);
