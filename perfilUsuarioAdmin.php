@@ -32,6 +32,8 @@
   $template->setVariable("NOMBRE_USR", $username);
   $template->setVariable("ID", $id);
 
+  $template->parseCurrentBlock("NUsuario");
+
   mysqli_free_result($result);
   $flag=0;
 

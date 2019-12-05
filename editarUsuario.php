@@ -47,6 +47,7 @@
     $nombreUsr=$line['nombreUsr'];
   }
   mysqli_free_result($result);
+  
   @mysqli_close($link);
 
   header("location: perfilUsuarioAdmin.php?idP=$idUsuarioPrincipal&id=$idUsuarioModificado&nom=$nombreUsr");
