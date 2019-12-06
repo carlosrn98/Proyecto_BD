@@ -1,5 +1,4 @@
 <?php
-  //echo"llego";
   include"config.php";
   $uploadDir='images/';
   $idUsuarioPrincipal=$_GET['idP'];
