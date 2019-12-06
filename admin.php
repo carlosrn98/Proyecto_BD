@@ -86,22 +86,6 @@
     }
     mysqli_free_result($result);
 
-    //query para sacar los contactos del usuario
-    // $query = "SELECT nombre, apellido, nombreUsr, idUsuario FROM pf_contactos LEFT JOIN pf_usuarios USING(idUsuario) WHERE usuarioPrincipal=$idUsuarioPrincipal AND NOT idUsuario=$idUsuarioPrincipal";
-    // $result = mysqli_query($link, $query) or die("Query 4 failed");
-    // while($line = mysqli_fetch_assoc($result)){
-    //   $template->setCurrentBlock("NContactos");
-    //
-    //   $template->setVariable("USUARIOS_NOMBRE", $line['nombre']);
-    //   $template->setVariable("USUARIOS_APELLIDO", $line['apellido']);
-    //   $template->setVariable("NOMBRE_USR", $line['nombreUsr']);
-    //   $template->setVariable("ID", $line['idUsuario']);
-    //   $template->setVariable("IDP", $idUsuarioPrincipal);
-    //
-    //   $template->parseCurrentBlock("NContactos");
-    // }
-    // mysqli_free_result($result);
-    //fin del query para los contactos
 
     //query para sacar los posts
     $query = "SELECT idLugar, pf_usuarios.nombre AS nombreU, apellido, fecha, nombreUsr, pf_usuarios.idUsuario AS idU, comentario, pf_lugaresTuristicos.nombre AS nombreL, descripcion FROM pf_usuarios RIGHT JOIN pf_contactos ON pf_usuarios.idUsuario=pf_contactos.idUsuario RIGHT JOIN pf_posts ON  pf_contactos.idUsuario= pf_posts.idUsuario LEFT JOIN pf_lugaresTuristicos USING(idLugar) GROUP BY idPost ORDER BY fecha desc";
