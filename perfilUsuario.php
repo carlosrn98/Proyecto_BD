@@ -15,11 +15,12 @@
   $template->setVariable("TITULO", "$username");
   $template->addBlockfile("CONTENIDO", "INICIO", "perfilUsuario.html");
 
-  $query="SELECT * FROM pf_usuarios WHERE idUsuario=$id";
+  $query="SELECT nombreUsr, pf_usuarios.nombre AS nombre, apellido, email, fechaNacimiento, genero, fechaRegistro, pf_imagenesUsr.nombre AS imagen FROM pf_usuarios LEFT JOIN pf_imagenesUsr USING(idUsuario ) WHERE idUsuario=$id";
   $result = mysqli_query($link, $query) or die("query failed");
   $line = mysqli_fetch_assoc($result);
   $template->setCurrentBlock("NUsuario");
   //foto
+  $template->setVariable("IMAGEN", $line['imagen']);
   $template->setVariable("NOMBRE_USR", $line['nombreUsr']);
   $template->setVariable("NOMBRE", $line['nombre']);
   $template->setVariable("APELLIDO", $line['apellido']);
